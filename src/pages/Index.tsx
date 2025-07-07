@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, TrendingUp, Brain, CheckSquare, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Index = () => {
@@ -50,9 +51,11 @@ const Index = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg" className="text-lg">
-                  Join the Waitlist
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                <Button variant="hero" size="lg" className="text-lg" asChild>
+                  <Link to="/waitlist">
+                    Join the Waitlist
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg">
                   Learn More
@@ -133,9 +136,11 @@ const Index = () => {
             </p>
             
             <div className="space-y-6">
-              <Button variant="hero" size="lg" className="text-lg px-12">
-                Join the Waitlist Now
-                <ArrowRight className="w-5 h-5 ml-2" />
+              <Button variant="hero" size="lg" className="text-lg px-12" asChild>
+                <Link to="/waitlist">
+                  Join the Waitlist Now
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
               </Button>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
