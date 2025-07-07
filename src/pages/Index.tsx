@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { BarChart3, TrendingUp, Brain, CheckSquare, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const features = [
@@ -30,9 +31,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="absolute top-0 left-0 right-0 z-10 py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Postful Logo" className="w-8 h-8" />
+            <span className="text-2xl font-bold">Postful</span>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-hero">
-        <div className="container mx-auto px-4 py-16 lg:py-24">
+        <div className="container mx-auto px-4 py-16 lg:py-24 pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
@@ -167,9 +178,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-primary-foreground" />
-              </div>
+              <img src={logo} alt="Postful Logo" className="w-8 h-8" />
               <span className="text-2xl font-bold">Postful</span>
             </div>
             
