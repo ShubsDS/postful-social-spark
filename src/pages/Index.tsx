@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart3, TrendingUp, Brain, CheckSquare, ArrowRight, Sparkles } from "lucide-react";
+import { BarChart3, TrendingUp, Brain, CheckSquare, ArrowRight, Sparkles, Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 import logo from "@/assets/logo.png";
@@ -32,11 +32,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-10 py-6">
+      <header className="absolute top-0 left-0 right-0 z-10 py-6 backdrop-blur-sm bg-background/80 transition-all duration-500">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Postful Logo" className="w-8 h-8" />
-            <span className="text-2xl font-bold">Postful</span>
+            <img src={logo} alt="Postful Logo" className="w-8 h-8 hover:scale-110 transition-transform duration-300" />
+            <span className="text-2xl font-bold hover:text-primary transition-colors duration-300">Postful</span>
           </div>
         </div>
       </header>
@@ -46,17 +46,17 @@ const Index = () => {
         <div className="container mx-auto px-4 py-16 lg:py-24 pt-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                  <Sparkles className="w-4 h-4" />
+              <div className="space-y-4 animate-fade-in">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium hover:bg-primary/20 transition-all duration-300 hover:scale-105">
+                  <Sparkles className="w-4 h-4 animate-pulse" />
                   AI-Powered Marketing
                 </div>
-                <h1 className="text-4xl lg:text-6xl font-bold tracking-tight">
+                <h1 className="text-4xl lg:text-6xl font-bold tracking-tight hover:tracking-wide transition-all duration-500">
                   Take Your 
-                  <span className="bg-gradient-primary bg-clip-text text-transparent"> Small Business</span> 
+                  <span className="bg-gradient-primary bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300"> Small Business</span> 
                   {" "}to the Next Level
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-2xl">
+                <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
                   Postful uses AI automation and social media trend analysis to help small businesses create winning marketing strategies and grow their audience.
                 </p>
               </div>
@@ -104,27 +104,27 @@ const Index = () => {
       {/* Features Section */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl lg:text-5xl font-bold">
+          <div className="text-center space-y-4 mb-16 animate-fade-in">
+            <h2 className="text-3xl lg:text-5xl font-bold hover:tracking-wide transition-all duration-300">
               Everything You Need to 
-              <span className="bg-gradient-primary bg-clip-text text-transparent"> Succeed</span>
+              <span className="bg-gradient-primary bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300"> Succeed</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Our AI-powered platform provides all the tools small businesses need to create engaging content, understand their audience, and grow their social media presence.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 border-0 shadow-soft">
+              <Card key={index} className="group hover:shadow-elegant transition-all duration-500 hover:-translate-y-3 border-0 shadow-soft backdrop-blur-sm bg-card/90 hover:bg-card hover:rotate-1">
                 <CardHeader className="space-y-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-6 h-6 text-primary-foreground" />
+                  <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-soft">
+                    <feature.icon className="w-6 h-6 text-primary-foreground group-hover:animate-pulse" />
                   </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
+                  <CardDescription className="text-base leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
@@ -174,19 +174,36 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-12">
+      <footer className="border-t py-12 bg-gradient-hero/30">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <img src={logo} alt="Postful Logo" className="w-8 h-8" />
-              <span className="text-2xl font-bold">Postful</span>
+          <div className="flex flex-col space-y-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-2">
+                <img src={logo} alt="Postful Logo" className="w-8 h-8 hover:scale-110 hover:rotate-6 transition-all duration-300" />
+                <span className="text-2xl font-bold hover:text-primary transition-colors duration-300">Postful</span>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <Button variant="outline" size="sm" className="group hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:rotate-1">
+                  <Mail className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+                  Contact Us
+                </Button>
+                <Button variant="outline" size="sm" className="group hover:bg-gradient-primary hover:text-primary-foreground border-primary/30 transition-all duration-300 hover:scale-105 hover:-rotate-1" asChild>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+                    Follow Us
+                  </a>
+                </Button>
+              </div>
             </div>
             
-            <p className="text-muted-foreground text-center md:text-right">
-              AI-powered social media marketing for small businesses.
-              <br />
-              © 2024 Postful. All rights reserved.
-            </p>
+            <div className="text-center">
+              <p className="text-muted-foreground leading-relaxed">
+                AI-powered social media marketing for small businesses.
+                <br />
+                © 2024 Postful. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </footer>
