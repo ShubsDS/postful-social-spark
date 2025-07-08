@@ -1,11 +1,43 @@
+import { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, TrendingUp, Brain, CheckSquare, ArrowRight, Sparkles, Instagram, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 import logo from "@/assets/logo.png";
 
 const Index = () => {
+  useEffect(() => {
+    // Load the waitforit script
+    const script = document.createElement('script');
+    script.src = 'https://www.waitforit.me/waitlistV3.bundle.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Load the waitforit CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://www.waitforit.me/wfiEmbedStyles.css';
+    document.head.appendChild(link);
+
+    return () => {
+      // Cleanup on unmount
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+      if (document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
+    };
+  }, []);
+
+  const scrollToWaitlist = () => {
+    const waitlistSection = document.getElementById('waitlist-section');
+    if (waitlistSection) {
+      waitlistSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const features = [
     {
       icon: BarChart3,
@@ -62,11 +94,9 @@ const Index = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg" className="text-lg" asChild>
-                  <Link to="/waitlist">
-                    Join the Waitlist
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
+                <Button variant="hero" size="lg" className="text-lg" onClick={scrollToWaitlist}>
+                  Join the Waitlist
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg">
                   Learn More
@@ -134,8 +164,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-hero">
+      {/* CTA Section with Waitlist */}
+      <section id="waitlist-section" className="py-16 lg:py-24 bg-gradient-hero">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl lg:text-5xl font-bold">
@@ -146,13 +176,14 @@ const Index = () => {
               Join thousands of small businesses already on our waitlist. Be the first to access Postful when we launch.
             </p>
             
-            <div className="space-y-6">
-              <Button variant="hero" size="lg" className="text-lg px-12" asChild>
-                <Link to="/waitlist">
-                  Join the Waitlist Now
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
+            <div className="space-y-8">
+              <div className="bg-card rounded-lg shadow-elegant p-8 max-w-2xl mx-auto">
+                <div 
+                  id="waitforit-embed" 
+                  data-project-id="a9f41842-c279-41bb-bb68-a74a6ed8c530"
+                >
+                </div>
+              </div>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
