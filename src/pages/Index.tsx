@@ -85,7 +85,7 @@ const Index = () => {
                 </div>
                 <h1 className="text-4xl lg:text-6xl font-bold tracking-tight hover:tracking-wide transition-all duration-500">
                   Take Your 
-                  <span className="bg-gradient-primary bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300"> Business</span> 
+                  <span className="bg-gradient-primary bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300"> Small Business</span> 
                   {" "}to the Next Level
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
