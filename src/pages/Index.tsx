@@ -107,7 +107,7 @@ const Index = () => {
           <div className="text-center space-y-4 mb-16 animate-fade-in">
             <h2 className="text-3xl lg:text-5xl font-bold hover:tracking-wide transition-all duration-300">
               Everything You Need to 
-              <span className="bg-gradient-primary bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300"> Succeed</span>
+              <span className="bg-gradient-primary bg-clip-text text-transparent hover:scale-105 inline-block transition-transform duration-300 pl-2"> Succeed</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Our AI-powered platform provides all the tools small businesses need to create engaging content, understand their audience, and grow their social media presence.
