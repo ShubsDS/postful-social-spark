@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "https://shubsds.github.io/postful-social-spark/",
+  base: "/postful-social-spark/",
   server: {
     host: "::",
     port: 8080,
